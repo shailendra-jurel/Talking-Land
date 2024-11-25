@@ -1,26 +1,45 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Paper } from '@mui/material'
 import { useSelector } from 'react-redux'
 import StoryCard from './StoryCard'
+import LoadingSpinner from '../common/LoadingSpinner'
+import ErrorAlert from '../common/ErrorAlert'
+
 const StoryList = () => {
-const stories = useSelector((state) => state.stories.items)
-const status = useSelector((state) => state.stories.status)
-if (status === 'loading') {
-return <Typography>Loading stories...</Typography>
+  const { items: stories, status, error } = useSelector((state) => state.stories)
+
+  if (status === 'loading') {
+    return <LoadingSpinner />
+  }
+
+  if (status === 'failed') {
+    return <ErrorAlert message={error || 'Failed to load stories'} />
+  }
+
+  return (
+    <Paper 
+      elevation={3} 
+      sx={{ 
+        p: 2, 
+        overflowY: 'auto', 
+        maxHeight: '70vh',
+        backgroundColor: 'rgba(255, 255, 255, 0.9)'
+      }}
+    >
+      <Typography variant="h6" gutterBottom>
+        Stories
+      </Typography>
+      {stories.length === 0 ? (
+        <Typography color="text.secondary">
+          No stories yet. Click on the map to add one!
+        </Typography>
+      ) : (
+        stories.map((story) => (
+          <StoryCard key={story._id} story={story} />
+        ))
+      )}
+    </Paper>
+  )
 }
-if (status === 'failed') {
-return <Typography color="error">Failed to load stories</Typography>
-}
-return (
-<Box sx={{ overflowY: 'auto', maxHeight: '70vh' }}>
-{stories.length === 0 ? (
-<Typography>No stories yet. Click on the map to add one!</Typography>
-) : (
-stories.map((story) => (
-<StoryCard key={story.id} story={story} />
-))
-)}
-</Box>
-)
-}
+
 export default StoryList

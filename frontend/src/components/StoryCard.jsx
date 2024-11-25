@@ -22,13 +22,22 @@ e.stopPropagation()
 dispatch(deleteStory(story.id))
 }
 return (
+// Update the Card component styling
 <Card
-sx={{
-mb: 2,
-cursor: 'pointer',
-'&:hover': { transform: 'scale(1.02)', transition: 'transform 0.2s' }
-}}
-onClick={handleCardClick}
+  component={motion.div}
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  sx={{
+    mb: 2,
+    cursor: 'pointer',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backdropFilter: 'blur(10px)',
+    transition: 'all 0.3s ease-in-out',
+    '&:hover': {
+      boxShadow: (theme) => theme.shadows[10],
+    },
+  }}
+  onClick={handleCardClick}
 >
 <CardMedia
 component="img"

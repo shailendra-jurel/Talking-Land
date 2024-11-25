@@ -50,14 +50,24 @@ streetViewControl: false,
 mapTypeControl: false,
 }}
 >
+{/* // Update the Marker rendering in the Map component */}
 {stories.map((story) => (
-<Marker
-key={story.id}
-position={{ lat: story.latitude, lng: story.longitude }}
-onClick={() => dispatch(setSelectedLocation(story))}
-animation={selectedLocation?.id === story._id ? 2 : 0}
-/>
+  <motion.div
+    key={story._id}
+    initial={{ scale: 0 }}
+    animate={{ scale: 1 }}
+    exit={{ scale: 0 }}
+  >
+    <Marker
+      position={{ lat: story.latitude, lng: story.longitude }}
+      onClick={() => dispatch(setSelectedLocation(story))}
+      animation={selectedLocation?._id === story._id ? 2 : 0}
+    />
+  </motion.div>
 ))}
+
+
+
 </GoogleMap>
 <AddStoryDialog
 open={isDialogOpen}
