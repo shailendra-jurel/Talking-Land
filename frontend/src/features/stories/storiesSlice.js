@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { storyApi } from '../../services/api'
 import { toast } from 'react-toastify'
 
+// Async Thunks
 export const fetchStories = createAsyncThunk(
   'stories/fetchStories',
   async (_, { rejectWithValue }) => {
@@ -10,7 +11,7 @@ export const fetchStories = createAsyncThunk(
       return response.data
     } catch (error) {
       toast.error('Failed to fetch stories')
-      return rejectWithValue(error.response.data)
+      return rejectWithValue(error.message)
     }
   }
 )
@@ -24,11 +25,12 @@ export const addStory = createAsyncThunk(
       return response.data
     } catch (error) {
       toast.error('Failed to add story')
-      return rejectWithValue(error.response.data)
+      return rejectWithValue(error.message)
     }
   }
 )
 
+// Add this new thunk for delete functionality
 export const deleteStory = createAsyncThunk(
   'stories/deleteStory',
   async (id, { rejectWithValue }) => {
@@ -38,7 +40,7 @@ export const deleteStory = createAsyncThunk(
       return id
     } catch (error) {
       toast.error('Failed to delete story')
-      return rejectWithValue(error.response.data)
+      return rejectWithValue(error.message)
     }
   }
 )
@@ -53,6 +55,7 @@ const storiesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      // Fetch stories cases
       .addCase(fetchStories.pending, (state) => {
         state.status = 'loading'
       })
@@ -64,11 +67,16 @@ const storiesSlice = createSlice({
         state.status = 'failed'
         state.error = action.payload
       })
+      // Add story cases
       .addCase(addStory.fulfilled, (state, action) => {
         state.items.unshift(action.payload)
       })
+      // Add these cases for delete functionality
       .addCase(deleteStory.fulfilled, (state, action) => {
         state.items = state.items.filter(story => story._id !== action.payload)
+      })
+      .addCase(deleteStory.rejected, (state, action) => {
+        state.error = action.payload
       })
   },
 })

@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialState = {
+  center: { lat: 40.7128, lng: -74.0060 }, // New York City coordinates
+  zoom: 12,
+  selectedLocation: null,
+}
+
 const mapSlice = createSlice({
   name: 'map',
-  initialState: {
-    center: { lat: 40.7128, lng: -74.0060 }, // Default to NYC
-    zoom: 12,
-    selectedLocation: null,
-  },
+  initialState,
   reducers: {
     setCenter: (state, action) => {
       state.center = action.payload

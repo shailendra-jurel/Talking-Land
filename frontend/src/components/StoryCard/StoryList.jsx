@@ -2,8 +2,8 @@ import React from 'react'
 import { Box, Typography, Paper } from '@mui/material'
 import { useSelector } from 'react-redux'
 import StoryCard from './StoryCard'
-import LoadingSpinner from '../common/LoadingSpinner'
-import ErrorAlert from '../common/ErrorAlert'
+import LoadingSpinner from '../../utils/LoadingSpinner'
+import ErrorAlert from '../../utils/ErrorAlert'
 
 const StoryList = () => {
   const { items: stories, status, error } = useSelector((state) => state.stories)
