@@ -24,8 +24,9 @@ export const addStory = createAsyncThunk(
       toast.success('Story added successfully!')
       return response.data
     } catch (error) {
-      toast.error('Failed to add story')
-      return rejectWithValue(error.response?.data || 'Failed to add story')
+      const errorMessage = error.response?.data?.message || 'Failed to add story'
+      toast.error(errorMessage)
+      return rejectWithValue(errorMessage)
     }
   }
 )
