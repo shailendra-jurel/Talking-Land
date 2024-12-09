@@ -1,3 +1,4 @@
+// pages/HomePage.jsx
 import React from 'react'
 import { Box, Grid } from '@mui/material'
 import Map from '../components/Map/Map'

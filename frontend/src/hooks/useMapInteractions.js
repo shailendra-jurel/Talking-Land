@@ -1,3 +1,4 @@
+// hooks/useMapInteractions.js
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { setCenter, setZoom, setSelectedLocation } from '../features/map/mapSlice'

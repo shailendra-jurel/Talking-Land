@@ -1,3 +1,4 @@
+// component/Map/AddStoryDialog.jsx
 import React, { useState } from 'react'
 import {
   Dialog,

@@ -1,3 +1,4 @@
+// component/Map/Map.jsx
 import React, { useState } from 'react'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import { useSelector, useDispatch } from 'react-redux'

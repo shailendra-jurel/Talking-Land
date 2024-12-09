@@ -1,3 +1,4 @@
+// hookes/storiesSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { storyApi } from '../../services/api'
 import { toast } from 'react-toastify'

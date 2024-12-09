@@ -1,3 +1,4 @@
+// features/stories/storiesSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { storyApi } from '../../services/api'
 import { toast } from 'react-toastify'
@@ -82,3 +83,57 @@ const storiesSlice = createSlice({
 })
 
 export default storiesSlice.reducer
+
+
+
+
+
+// import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+// export const fetchStories = createAsyncThunk(
+//   'stories/fetchStories',
+//   async () => {
+//     const response = await fetch('/api/stories');
+//     return response.json();
+//   }
+// );
+
+// export const addStory = createAsyncThunk(
+//   'stories/addStory',
+//   async (storyData) => {
+//     const response = await fetch('/api/stories', {
+//       method: 'POST',
+//       body: JSON.stringify(storyData),
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     });
+//     return response.json();
+//   }
+// );
+
+// const storiesSlice = createSlice({
+//   name: 'stories',
+//   initialState: {
+//     items: [],
+//     status: 'idle',
+//     error: null,
+//   },
+//   reducers: {},
+//   extraReducers: (builder) => {
+//     builder
+//       .addCase(fetchStories.pending, (state) => {
+//         state.status = 'loading';
+//       })
+//       .addCase(fetchStories.fulfilled, (state, action) => {
+//         state.status = 'succeeded';
+//         state.items = action.payload;
+//       })
+//       .addCase(fetchStories.rejected, (state, action) => {
+//         state.status = 'failed';
+//         state.error = action.error.message;
+//       });
+//   },
+// });
+
+// export default storiesSlice.reducer;

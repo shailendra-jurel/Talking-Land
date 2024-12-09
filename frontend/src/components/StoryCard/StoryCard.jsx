@@ -1,3 +1,4 @@
+// component//StoryCard/StoryCard.jsx
 import React from 'react'
 import {
   Card,

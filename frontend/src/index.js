@@ -1,3 +1,4 @@
+// src/index.js
 import { configureStore } from '@reduxjs/toolkit'
 import storiesReducer from '../features/stories/storiesSlice'
 import mapReducer from '../features/map/mapSlice'
