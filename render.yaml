@@ -1,0 +1,12 @@
+services:
+  - name: talking-land-backend
+    type: web
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start # Replace with your start script
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://shailendrajurel001:sj1234@cluster0.1545f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - key: CLOUDINARY_URL
+        value: cloudinary://297236492594618:AtgyWzHVi4ZTMjvtxSBMmhk4Va8@diwvintur
