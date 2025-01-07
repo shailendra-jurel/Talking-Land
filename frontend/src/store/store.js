@@ -1,7 +1,7 @@
-// src/index.js
+// store/index.js
 import { configureStore } from '@reduxjs/toolkit'
-import storiesReducer from '../features/stories/storiesSlice'
-import mapReducer from '../features/map/mapSlice'
+import storiesReducer from './storiesSlice'
+import mapReducer from './mapSlice'
 
 export const store = configureStore({
   reducer: {

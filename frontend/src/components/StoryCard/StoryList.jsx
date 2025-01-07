@@ -1,6 +1,6 @@
 // component/StoryCard/StoryList.jsx
 import React from 'react'
-import { Box, Typography, Paper } from '@mui/material'
+import {  Typography, Paper } from '@mui/material'
 import { useSelector } from 'react-redux'
 import StoryCard from './StoryCard'
 import LoadingSpinner from '../../utils/LoadingSpinner'

@@ -1,16 +1,9 @@
 // component//StoryCard/StoryCard.jsx
 import React from 'react'
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  CardActions,
-  Button,
-} from '@mui/material'
+import { Card, CardContent, CardMedia, Typography, CardActions, Button,} from '@mui/material'
 import { useDispatch } from 'react-redux'
-import { deleteStory } from '../../features/stories/storiesSlice'
-import { setCenter, setSelectedLocation } from '../../features/map/mapSlice'
+import { deleteStory } from '../../store/storiesSlice'
+import { setCenter, setSelectedLocation } from '../../store/mapSlice'
 
 const StoryCard = ({ story }) => {
   const dispatch = useDispatch()

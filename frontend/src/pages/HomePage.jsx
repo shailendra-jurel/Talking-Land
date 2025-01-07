@@ -1,7 +1,7 @@
 // pages/HomePage.jsx
 import React from 'react'
 import { Box, Grid } from '@mui/material'
-import Map from '../components/Map/Map'
+import Map from '../components/Map'
 import StoryList from '../components/StoryCard/StoryList'
 
 const HomePage = () => {

@@ -1,5 +1,6 @@
 // component/Map/AddStoryDialog.jsx
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import {
   Dialog,
   DialogTitle,
@@ -10,7 +11,7 @@ import {
   Box,
 } from '@mui/material'
 import { useDispatch } from 'react-redux'
-import { addStory } from '../../features/stories/storiesSlice'
+import { addStory } from '../store/storiesSlice'
 import { toast } from 'react-toastify'
 
 const AddStoryDialog = ({ open, onClose, location }) => {
@@ -156,6 +157,14 @@ const AddStoryDialog = ({ open, onClose, location }) => {
       </form>
     </Dialog>
   )
+}
+AddStoryDialog.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  location: PropTypes.shape({
+    lat: PropTypes.number,
+    lng: PropTypes.number
+  }),
 }
 
 export default AddStoryDialog

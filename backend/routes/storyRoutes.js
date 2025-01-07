@@ -24,7 +24,7 @@ const validate = (validations) => {
 }
 
 // Multer configuration for file upload
-const storage = multer.diskStorage({
+const  = multer.disk({
   filename: function (req, file, cb) {
     // Generate unique filename with timestamp
     cb(null, `${Date.now()}-${file.originalname}`)
@@ -40,8 +40,7 @@ const fileFilter = (req, file, cb) => {
   }
 }
 
-const upload = multer({ 
-  storage, 
+const upload = multer({ , 
   fileFilter,
   limits: {
     fileSize: 5 * 1024 * 1024 // 5MB file size limit

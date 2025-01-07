@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import { useSelector, useDispatch } from 'react-redux'
 import { Box, CircularProgress } from '@mui/material'
-import { setSelectedLocation } from '../../features/map/mapSlice'
+import { setSelectedLocation } from '../store/mapSlice'
 import AddStoryDialog from './AddStoryDialog'
 
 const libraries = ['places']
